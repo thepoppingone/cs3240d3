@@ -17,12 +17,19 @@
 
 </style>
 <h2>Data Visualization for Data1.json</h2><br/>
-<svg width="960" height="920"></svg>
+<svg></svg>
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script>
+
+var currentWidth = 800;
+var currentHeight = 500;
+
+var svg = d3.select("svg");
+
+svg.attr("width",currentWidth);
+svg.attr("height",currentHeight);
 //http://www.d3noob.org/2012/12/adding-axis-labels-to-d3js-graph.html
-var svg = d3.select("svg"),
-    margin = {top: 40, right: 20, bottom: 40, left: 100},
+var margin = {top: 40, right: 20, bottom: 40, left: 100},
     width = +svg.attr("width") - margin.left - margin.right,
     height = +svg.attr("height") - margin.top - margin.bottom;
 
@@ -56,7 +63,7 @@ d3.json("Data1.json", function(error, data){
 
           g.append("text").attr("class","x label")
             .attr("x", width/2 )
-            .attr("y", height + margin.bottom - 10 )
+            .attr("y", height + margin.bottom - 5 )
             .attr("text-anchor", "middle")
             .text("Programming Language");
 
